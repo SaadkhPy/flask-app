@@ -1,0 +1,16 @@
+version: "3.9"
+services:
+  web-flask:
+    build:
+      context: .
+    command: python src/hello.py
+    container_name: flask
+    ports:
+      - 5000:5000
+    networks:
+     global-net:
+    volumes:
+      - ./src:/app/src:ro
+
+networks:
+  global-net:
